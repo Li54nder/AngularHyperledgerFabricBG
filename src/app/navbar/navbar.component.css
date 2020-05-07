@@ -1,0 +1,30 @@
+#navbar {
+    height: 100%;
+    width: calc(100%-20px);
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 2px solid orange;
+    background-color: #080808;
+}
+button {
+    padding: 5px 20px;
+    margin-right: 10px;
+    transition: background-color .3s;  
+    font-family: 'Quicksand', sans-serif !important;
+    font-size: 1rem; 
+    border-radius: 0;
+}
+button:hover {
+    background-color: rgba(255, 255, 255,0.1);
+    cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+    #navbar {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}

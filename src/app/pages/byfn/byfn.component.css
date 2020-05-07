@@ -1,0 +1,26 @@
+.buttons button {
+    margin: 0 20px;
+}
+
+.code {
+    background-color: black;
+    color: white;
+    font-family: 'Nanum Gothic Coding', monospace;
+    padding: 20px;
+    border-radius: 3px;
+    margin: 0 100px;
+}
+
+@media screen and (max-width: 900px) {
+    .buttons {
+        display: flex;
+        flex-direction: column;
+    }
+    .buttons button {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .code {
+        margin: 0;
+    }
+}
