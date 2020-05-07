@@ -20,14 +20,14 @@ a{
 }
 
 @media screen and (max-width: 900px) {
-    .page-content button, #footer a, #footer button{
+    #footer a, #footer button, .page-content button:not(#smallNote) {
         width: 100% !important;
     }
 }
 
-@media screen and (max-width: 405px) {
+@media screen and (max-width: 530px) {
     body {
-        font-size: 0.9rem !important ;
+        font-size: 0.8rem !important ;
     }
     img {
         width: 150px !important;

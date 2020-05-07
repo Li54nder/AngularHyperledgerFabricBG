@@ -6,9 +6,66 @@
     background-color: black;
     color: white;
     font-family: 'Nanum Gothic Coding', monospace;
-    padding: 20px;
+    padding: 20px 50px;
     border-radius: 3px;
-    margin: 0 100px;
+    margin: 20px 100px 0;
+}
+.align-left {
+    text-align: left;
+}
+
+/* STEPPER */
+#stepper button {
+    margin-right: 50px !important;
+}
+::ng-deep .mat-stepper-vertical {
+    background-color: black;
+}
+::ng-deep .mat-step-header {
+    background-color: black;
+    border-radius: 3px ;
+    transition: .2s;
+}
+::ng-deep .mat-step-header:hover {
+    background-color: rgb(15, 15, 15);
+}
+::ng-deep .mat-step-text-label {
+    color: orange;
+}
+::ng-deep .mat-step-optional {
+    display: none;
+}
+::ng-deep .mat-step-header .mat-step-icon {
+    color: orange;
+    border-radius: 50%;
+}
+::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: orange; 
+    color: black;
+}
+::ng-deep .mat-vertical-stepper-content {
+    background-color: black;
+    color: white;
+    text-align: left;
+    margin-left: 50px;
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+::ng-deep .mat-vertical-content-container {
+    border-left: 1px solid orange !important;
+}
+
+/*SNACKBAR*/
+::ng-deep .mat-snack-bar-container {
+    width: 100% !important;
+    background-color: orange;
+    color: black;
+
+    -webkit-box-shadow: 0px 0px 15px 0px black;
+    -moz-box-shadow: 0px 0px 15px 0px black;
+    box-shadow: 0px 0px 15px 0px black;
+}
+::ng-deep .mat-simple-snackbar-action {
+    color: black !important;
 }
 
 @media screen and (max-width: 900px) {
@@ -21,6 +78,6 @@
         margin: 10px 0;
     }
     .code {
-        margin: 0;
+        margin: 10px 0;
     }
 }

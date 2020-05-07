@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-byfn',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BYFNComponent implements OnInit {
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+  }
+  
+  openSnackBar(message, action) {
+    this.snackBar.open(message, action, { duration: 4000});
   }
 
 }
