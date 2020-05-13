@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
   selector: 'app-qna',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./qna.component.css']
 })
 export class QNAComponent implements OnInit {
+  questions: any[] = null;
 
-  constructor() { }
+  constructor(private dataStorage: DataStorageService) { }
 
   ngOnInit(): void {
+    this.dataStorage.fetchQuestions().subscribe(response => {
+      this.questions = response;    
+    })
   }
 
 }

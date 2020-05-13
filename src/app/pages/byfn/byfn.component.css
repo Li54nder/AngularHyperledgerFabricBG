@@ -1,23 +1,4 @@
-.buttons button {
-    margin: 0 20px;
-}
-
-.code {
-    background-color: black;
-    color: white;
-    font-family: 'Nanum Gothic Coding', monospace;
-    padding: 20px 50px;
-    border-radius: 3px;
-    margin: 20px 100px 0;
-}
-.align-left {
-    text-align: left;
-}
-
 /* STEPPER */
-#stepper button {
-    margin-right: 50px !important;
-}
 ::ng-deep .mat-stepper-vertical {
     background-color: black;
 }
@@ -54,6 +35,7 @@
     border-left: 1px solid orange !important;
 }
 
+
 /*SNACKBAR*/
 ::ng-deep .mat-snack-bar-container {
     width: 100% !important;
@@ -66,18 +48,4 @@
 }
 ::ng-deep .mat-simple-snackbar-action {
     color: black !important;
-}
-
-@media screen and (max-width: 900px) {
-    .buttons {
-        display: flex;
-        flex-direction: column;
-    }
-    .buttons button {
-        width: 100%;
-        margin: 10px 0;
-    }
-    .code {
-        margin: 10px 0;
-    }
 }

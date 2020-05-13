@@ -1,1 +1,74 @@
-<p>guide works!</p>
+<div class="page-content">
+    <div class="text">
+        <h1>Begginer Guide</h1>
+        <p>Here are, less or more, everything you have to know about Hyperledger Fabric as a begginer, in brief!</p>
+    </div>
+    <div class="text">
+        <p>Firstly, here you can check if you have installed all prereqisites, as quick as possible:</p>
+        <div class="code">
+            <mat-vertical-stepper #stepper>
+                <mat-step label="cURL" completed=false optional>
+                    $ sudo apt-get install cURL
+                </mat-step>
+                <mat-step label="Docker & Docker Compose" completed=false optional>
+                    $ sudo apt-get install docker
+                    <br>
+                    $ sudo apt-get install docker-compose
+                </mat-step>
+                <mat-step label="Go Lang" completed=false optional>
+                    $ sudo apt-get install go-lang
+                </mat-step>
+                <mat-step label="NodeJS & NPM" completed=false optional>
+                    $ sudo apt-get install nodejs
+                    <br>
+                    $ npm install npm@5.6.0 -g
+                </mat-step>
+                <mat-step label="Python" completed=false optional>
+                    $ sudo apt-get install python2
+                </mat-step>
+            </mat-vertical-stepper>
+        </div>
+        <br><br>
+        <button mat-raised-button
+                (click)="openSnackBar('As you can see, we preper you to Hyperledger Fabric v1.4', 'OK')">
+            Note*
+        </button>
+        <br>
+        <p>Now, with these comands bellow you can provide Samples, Binaries and Docker Images you need for BYFN:</p>
+        <div class="code">
+            $ curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.6 1.4.6 0.4.18
+        </div>
+    </div>
+    <div class="text">
+        <p>Then, we strongly recommend that you read our glossary!</p>
+        <button mat-raised-button>Go To Glossary</button>
+    </div>
+    <div class="text">
+        <p>After that, you may wish to get acqualnted with the Hyperledger Fabric architecture network. Let's check it on link bellow.</p>
+        <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/arch-deep-dive.html" target="_blank">
+            <button mat-raised-button>HF Achitecture</button>
+        </a>
+        <p>Also we have this photo that might help you understand the architecture itself.</p>
+        <button mat-raised-button>Show photo</button>
+    </div>
+    <div class="text">
+        <p>
+            Futhermore, we suggest you follow the official tutorial of Hyperledger Fabricto write your first application.
+            But before that, it would be nice to read also official chapter for developing application.
+        </p>
+        <br>
+        <div class="buttons">
+            <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/developing_applications.html" target="_blank">
+                <button mat-raised-button>Developing Application</button>
+            </a>
+            <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/write_first_app.html" target="_blank">
+                <button mat-raised-button>Write First Application</button>
+            </a>
+        </div>
+    </div>
+    <div class="text">
+        <p>Finally, it's time to choose language for SDK you will use in your future projects</p>
+        <p>SDK is replacement for all those commands that we run from terminal.</p>
+        <p><strong>So, we wish you good luck in you future work in this field.</strong></p>
+    </div>
+</div>

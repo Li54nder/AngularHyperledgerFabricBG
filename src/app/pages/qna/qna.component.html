@@ -1,1 +1,52 @@
-<p>qna works!</p>
+<div class="page-content">
+    <div class="text">
+        <h1>Questions & Answers</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quisquam corporis rerum nemo ea repellat harum debitis provident accusamus tempora voluptates delectus officiis consectetur dolores expedita ipsam omnis, aperiam quos!</p>
+    </div>
+    <div class="text">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <strong>Ask some question</strong>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <form action="" autocomplete="off">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Subject:</mat-label>
+                    <input matInput type="text" placeholder="Smart Contract">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Question content:</mat-label>
+                    <textarea matInput rows="5" placeholder="I have heard that smart contracts can be written in two ways. What are those ways."></textarea>
+                </mat-form-field>
+                <br>
+                <button mat-raised-button>Ask</button>
+            </form>
+        </mat-expansion-panel>
+    </div>
+
+    <div class="text">
+        <h1>Answared</h1>
+        ngFor... 
+    </div>
+
+    <div class="text">
+        <h1>Unanswared</h1>
+        <div *ngIf="!questions">
+            <br>
+            <i><p>There is no unanswared questions...</p></i>
+        </div>
+        <div *ngIf="questions">
+            <div class="question" *ngFor="let question of questions">
+                <h3>{{question.subject}}</h3>
+                {{question.content}}
+            </div>
+        </div>
+    </div>
+
+    <div class="text">
+        <p>Rate our work, initiative and effort</p>
+        rating stars
+    </div>
+</div>

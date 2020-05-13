@@ -3,8 +3,7 @@
 </div>
 <div id="page-content">
   <router-outlet></router-outlet>
-  <!-- <app-page-content></app-page-content> -->
 </div>
-<div id="footer">
+<div id="footer" *ngIf="dispalyFooter">
   <app-footer></app-footer>
 </div>
