@@ -1,33 +1,33 @@
 #navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
 
-    -webkit-box-shadow: 0px -5px 18px 0px orange;
-    -moz-box-shadow: 0px -5px 18px 0px orange;
-    box-shadow: 0px -5px 18px 0px orange;
-    z-index: 1;
+  -webkit-box-shadow: 0px -5px 18px 0px orange;
+  -moz-box-shadow: 0px -5px 18px 0px orange;
+  box-shadow: 0px -5px 18px 0px orange;
+  z-index: 1;
 }
 
 #page-content {
-    margin: 60px 150px;
-    padding: 15px 60px;
+  margin: 60px 150px;
+  padding: 15px 60px;
 }
 
 #footer {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
 }
 
 @media screen and (max-width: 900px) {
-    #navbar {
-        height: 90px;
-    }
-    #page-content {
-        margin: 90px 20px;
-    }
+  #navbar {
+    height: 90px;
+  }
+  #page-content {
+    margin: 90px 20px;
+  }
 }

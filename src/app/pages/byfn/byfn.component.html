@@ -1,79 +1,107 @@
 <div class="page-content">
-    <div class="text">
-        <h1>Build Your First Netrwork</h1>
-        <p>Firstly take a look at <strong>guide</strong> for Prerequisites & Samples etc.</p>
-        <div class="buttons">
-            <button mat-raised-button>Open Guide</button>
-            <button mat-raised-button
-            (click)="openSnackBar('Everything on these pages are adapted to Hyperledger Fabric v1.4', 'OK')">
-                Note*
-            </button>
-        </div>
+  <div class="text">
+    <h1>Build Your First Netrwork</h1>
+    <p>
+      Firstly take a look at <strong>guide</strong> for Prerequisites & Samples
+      etc.
+    </p>
+    <div class="buttons">
+      <button mat-raised-button>Open Guide</button>
+      <button
+        mat-raised-button
+        (click)="
+          openSnackBar(
+            'Everything on these pages are adapted to Hyperledger Fabric v1.4',
+            'OK'
+          )
+        "
+      >
+        Note*
+      </button>
     </div>
-    <div class="text">
-        <p>Now, when you did it, go open terminal and navigate to this path:</p>
-        <div class="code">.../fabric-samples/first-network$</div>
-        <br><br>
-        <p>Then, go follow these steps:</p>
-        <!-- <mat-icon>home</mat-icon> -->
-        
-        <div class="code">
-            <mat-vertical-stepper #stepper>
-                <mat-step label="Generating Network" completed=false optional>
-                    $ ./byfn.sh generate
-                </mat-step>
-                <mat-step label="Setup Docker" completed=false optional>
-                    $ sudo groupadd docker
-                    <br>
-                    $ sudo usermod -aG docker $USER
-                    <br>
-                    $ newgrp docker
-                    <br>
-                    $ docker run hello-world
-                </mat-step>
-                <mat-step label="Up/Down Network" completed=false optional>
-                    $ ./byfn.sh up
-                    <br>
-                    $ ./byfn.sh down
-                    <br><br>
-                    <button id="smallNote" mat-raised-button 
-                    (click)="openSnackBar('You can use flag -l behind UP command for specified language (e.g. -l node), also there is flag to specified ordering service (e.g. -o kafka)', 'OK')">
-                        Note*
-                    </button>
-                </mat-step>
-            </mat-vertical-stepper>
-        </div>
+  </div>
+  <div class="text">
+    <p>Now, when you did it, go open terminal and navigate to this path:</p>
+    <div class="code">.../fabric-samples/first-network$</div>
+    <br /><br />
+    <p>Then, go follow these steps:</p>
+
+    <div class="code">
+      <mat-vertical-stepper #stepper>
+        <mat-step label="Generating Network" completed="false" optional>
+          $ ./byfn.sh generate
+        </mat-step>
+        <mat-step label="Setup Docker" completed="false" optional>
+          $ sudo groupadd docker
+          <br />
+          $ sudo usermod -aG docker $USER
+          <br />
+          $ newgrp docker
+          <br />
+          $ docker run hello-world
+        </mat-step>
+        <mat-step label="Up/Down Network" completed="false" optional>
+          $ ./byfn.sh up
+          <br />
+          $ ./byfn.sh down
+          <br /><br />
+          <button
+            id="smallNote"
+            mat-raised-button
+            (click)="
+              openSnackBar(
+                'You can use flag -l behind UP command for specified language (e.g. -l node), also there is flag to specified ordering service (e.g. -o kafka)',
+                'OK'
+              )
+            "
+          >
+            Note*
+          </button>
+        </mat-step>
+      </mat-vertical-stepper>
     </div>
-    <div class="text">
-        <p>After all, if you comes to some error with message, while you running <strong>UP</strong> command, like this one:
-            <br>
-            <em>"FORBIDDEN --config update for existing channel did not pass initial checks..."</em>
-            <br>
-            Then follow these steps belowe to turn off all docker
-            containers:
-        </p>
-        <div class="buttons">
-            <button mat-raised-button 
-            (click)="openSnackBar('Pay attention to the default answers (Yes/No)', 'OK')">
-                Note*
-            </button>
-        </div>
-        <div class="code align-left">
-            $ docker stop $(docker ps -a -q)
-            <br>
-            $ docker rm $(docker ps -a -q)
-            <br>
-            $ docker system prune -a
-            <br>
-            $ docker volume prune
-            <br>
-            $ docker network prune
-        </div>
+  </div>
+  <div class="text">
+    <p>
+      After all, if you comes to some error with message, while you running
+      <strong>UP</strong> command, like this one:
+      <br />
+      <em
+        >"FORBIDDEN --config update for existing channel did not pass initial
+        checks..."</em
+      >
+      <br />
+      Then follow these steps belowe to turn off all docker containers:
+    </p>
+    <div class="buttons">
+      <button
+        mat-raised-button
+        (click)="
+          openSnackBar('Pay attention to the default answers (Yes/No)', 'OK')
+        "
+      >
+        Note*
+      </button>
     </div>
-    <div class="text">
-        <p>You can find full guide for BYFN on official documentation</p>
-        <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/build_network.html" target="blank">
-            <button mat-raised-button>Go Check Doc</button>
-        </a>
+    <div class="code align-left">
+      $ docker stop $(docker ps -a -q)
+      <br />
+      $ docker rm $(docker ps -a -q)
+      <br />
+      $ docker system prune -a
+      <br />
+      $ docker volume prune
+      <br />
+      $ docker network prune
     </div>
+  </div>
+  <div class="text">
+    <p>You can find full guide for BYFN on official documentation</p>
+    <a
+      href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/build_network.html"
+      target="blank"
+    >
+      <button mat-raised-button>Go Check Doc</button>
+    </a>
+  </div>
 </div>

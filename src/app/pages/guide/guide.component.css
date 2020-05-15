@@ -1,52 +1,50 @@
-
 /* STEPPER */
 ::ng-deep .mat-stepper-vertical {
-    background-color: black;
+  background-color: black;
 }
 ::ng-deep .mat-step-header {
-    background-color: black;
-    border-radius: 3px ;
-    transition: .2s;
+  background-color: black;
+  border-radius: 3px;
+  transition: 0.2s;
 }
 ::ng-deep .mat-step-header:hover {
-    background-color: rgb(15, 15, 15);
+  background-color: rgb(15, 15, 15);
 }
 ::ng-deep .mat-step-text-label {
-    color: orange;
+  color: orange;
 }
 ::ng-deep .mat-step-optional {
-    display: none;
+  display: none;
 }
 ::ng-deep .mat-step-header .mat-step-icon {
-    color: orange;
-    border-radius: 50%;
+  color: orange;
+  border-radius: 50%;
 }
 ::ng-deep .mat-step-header .mat-step-icon-selected {
-    background-color: orange; 
-    color: black;
+  background-color: orange;
+  color: black;
 }
 ::ng-deep .mat-vertical-stepper-content {
-    background-color: black;
-    color: white;
-    text-align: left;
-    margin-left: 50px;
-    font-family: 'Nanum Gothic Coding', monospace;
+  background-color: black;
+  color: white;
+  text-align: left;
+  margin-left: 50px;
+  font-family: "Nanum Gothic Coding", monospace;
 }
 ::ng-deep .mat-vertical-content-container {
-    border-left: 1px solid orange !important;
+  border-left: 1px solid orange !important;
 }
-
 
 /*SNACKBAR*/
 ::ng-deep .mat-snack-bar-container {
-    width: 100% !important;
-    background-color: orange;
-    color: black;
+  width: 100% !important;
+  background-color: orange;
+  color: black;
 
-    -webkit-box-shadow: 0px 0px 15px 0px black;
-    -moz-box-shadow: 0px 0px 15px 0px black;
-    box-shadow: 0px 0px 15px 0px black;
+  -webkit-box-shadow: 0px 0px 15px 0px black;
+  -moz-box-shadow: 0px 0px 15px 0px black;
+  box-shadow: 0px 0px 15px 0px black;
 }
 ::ng-deep .mat-simple-snackbar-action {
-    color: black !important;
+  color: black !important;
 }

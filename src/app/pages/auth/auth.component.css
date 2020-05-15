@@ -1,64 +1,64 @@
 #fullPage {
-    height: 60vh !important;
+  height: 60vh !important;
 }
 
 .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
 }
 
 .example-full-width {
-    width: 51%;
+  width: 51%;
 }
 
 .page-content {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: 50px 200px 0;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 50px 200px 0;
+  align-items: center;
+  justify-content: center;
 }
 
 .buttons {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 ::ng-deep .mat-focused .mat-form-field-ripple {
-    background-color: black !important;
+  background-color: black !important;
 }
-::ng-deep .mat-focused mat-label, ::ng-deep mat-label {
-    color: black !important;
+::ng-deep .mat-focused mat-label,
+::ng-deep mat-label {
+  color: black !important;
 }
 ::ng-deep .cdk-text-field-autofilled {
-    background-color: orange !important;
+  background-color: orange !important;
 }
 
 ::ng-deep mat-card {
-    background-color: coral !important;
-    color: darkred !important;
-    border: 1px solid darkred;
+  background-color: coral !important;
+  color: darkred !important;
+  border: 1px solid darkred;
 }
-
 
 @media screen and (max-width: 900px) {
-    .page-content {
-        margin: 0 50px !important;
-        padding: 0 20px;
-    }
-    .text {
-        padding: 10px 50px 40px;
-    }
-    .example-full-width {
-        width: 100% !important;
-    }
+  .page-content {
+    margin: 0 50px !important;
+    padding: 0 20px;
+  }
+  .text {
+    padding: 10px 50px 40px;
+  }
+  .example-full-width {
+    width: 100% !important;
+  }
 }
 @media screen and (max-width: 530px) {
-    .page-content {
-        margin: 0 !important;
-        padding: 0 30px;
-    }
+  .page-content {
+    margin: 0 !important;
+    padding: 0 30px;
+  }
 }

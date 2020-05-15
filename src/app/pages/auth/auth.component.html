@@ -1,36 +1,68 @@
 <div class="page-content">
-    <div class="text">
-        <h2>{{ isLoginMode ? 'For this action you must be logged in!' : 'Registration'}}</h2>
-        <br>
-        <div *ngIf="isLoading">
-            <app-loading-spinner></app-loading-spinner>
-        </div>
-        <div *ngIf="error">
-            <mat-card>
-                <mat-card-title>Error!</mat-card-title>
-                <mat-card-content>{{error}}</mat-card-content>
-            </mat-card>
-            <br>
-        </div>
-        <form action="" autocomplete="off" #authForm="ngForm" (ngSubmit)="onSubmitForm(authForm)" *ngIf="!isLoading">
-            <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input matInput type="email" ngModel required email placeholder="E.g. example@email.com" name="email">
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input matInput type="password" ngModel required minlength="6" placeholder="******" name="password">
-            </mat-form-field>
-            <br>
-            <div class="buttons">
-                <button mat-raised-button type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login' : 'Sing Up' }}</button>
-                <br><br>
-                <button mat-raised-button (click)="onSwitchMode()" type="button">
-                    {{ isLoginMode ?
-                    'You haven\'t account yet - let\'s REGISTRATE' :
-                    'Switch to Login' }}
-                </button>
-            </div>
-        </form>
+  <div class="text">
+    <h2>
+      {{
+        isLoginMode ? "For this action you must be logged in!" : "Registration"
+      }}
+    </h2>
+    <br />
+    <div *ngIf="isLoading">
+      <app-loading-spinner></app-loading-spinner>
     </div>
+    <div *ngIf="error">
+      <mat-card>
+        <mat-card-title>Error!</mat-card-title>
+        <mat-card-content>{{ error }}</mat-card-content>
+      </mat-card>
+      <br />
+    </div>
+    <form
+      action=""
+      autocomplete="off"
+      #authForm="ngForm"
+      (ngSubmit)="onSubmitForm(authForm)"
+      *ngIf="!isLoading"
+    >
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          ngModel
+          required
+          email
+          placeholder="E.g. example@email.com"
+          name="email"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          ngModel
+          required
+          password
+          placeholder="*******"
+          name="password"
+        />
+      </mat-form-field>
+
+      <br />
+      <div class="buttons">
+        <button mat-raised-button type="submit" [disabled]="!authForm.valid">
+          {{ isLoginMode ? "Login" : "Sing Up" }}
+        </button>
+        <br /><br />
+        <button mat-raised-button (click)="onSwitchMode()" type="button">
+          {{
+            isLoginMode
+              ? "You haven't account yet - let's REGISTRATE"
+              : "Switch to Login"
+          }}
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

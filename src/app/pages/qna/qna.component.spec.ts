@@ -8,9 +8,8 @@ describe('QNAComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QNAComponent ]
-    })
-    .compileComponents();
+      declarations: [QNAComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

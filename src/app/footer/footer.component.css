@@ -1,61 +1,61 @@
 #footer {
-    height: 100%;
-    width: 100%;
-    border-top: 2px solid orange;
-    display: flex;
-    flex-direction: column;
-    font-size: .7rem;
+  height: 100%;
+  width: 100%;
+  border-top: 2px solid orange;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7rem;
 }
 .column {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .row {
-    flex: 3;
-    display: flex;
+  flex: 3;
+  display: flex;
 }
 .row div {
-    margin: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  margin: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-.row  img {
-    width: 200px;
+.row img {
+  width: 200px;
 }
-.row  button {
-    background-color: orange;
-    color: #080808;
+.row button {
+  background-color: orange;
+  color: #080808;
 }
 .orange {
-    flex: 1;
-    bottom: 0;
-    background-color: orange;
-    color: #080808;
-    text-align: center;
-    display: flex;
-    align-items: center;
+  flex: 1;
+  bottom: 0;
+  background-color: orange;
+  color: #080808;
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 .orange p {
-    width: 100%;
+  width: 100%;
 }
 
 @media screen and (max-width: 900px) {
-    .row  {
-        /* height: 90px; */
-        flex-direction: column;
-    }
-    #num1{
-        order: 1;
-    }
-    #num2{
-        order: 3;
-    }
-    #num3{
-        order: 2;
-    }
+  .row {
+    /* height: 90px; */
+    flex-direction: column;
+  }
+  #num1 {
+    order: 1;
+  }
+  #num2 {
+    order: 3;
+  }
+  #num3 {
+    order: 2;
+  }
 }

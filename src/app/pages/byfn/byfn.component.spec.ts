@@ -8,9 +8,8 @@ describe('BYFNComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BYFNComponent ]
-    })
-    .compileComponents();
+      declarations: [BYFNComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

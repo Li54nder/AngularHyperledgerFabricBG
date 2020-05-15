@@ -1,87 +1,89 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap");
 
-html, body {
-    margin: 0;
+html,
+body {
+  margin: 0;
 }
 body {
-    background-color: #080808;
-    color: orange;
-    font-family: 'Quicksand', sans-serif !important;
+  background-color: #080808;
+  color: orange;
+  font-family: "Quicksand", sans-serif !important;
 }
 button {
-    z-index: 0;
+  z-index: 0;
 }
 .buttons button {
-    margin: 0 20px;
+  margin: 0 20px;
 }
-a{
-    text-decoration: none;
-    color: #080808;
+a {
+  text-decoration: none;
+  color: #080808;
 }
 
 @media screen and (max-width: 900px) {
-    #footer a, #footer button, .page-content button:not(#smallNote) {
-        width: 100% !important;
-    }
-    .buttons {
-        display: flex;
-        flex-direction: column;
-    }
-    .buttons button {
-        width: 100%;
-        margin: 10px 0;
-    }
-    .code {
-        margin: 10px 0 !important;
-    }
+  #footer a,
+  #footer button,
+  .page-content button:not(#smallNote) {
+    width: 100% !important;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .buttons button {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .code {
+    margin: 10px 0 !important;
+  }
 }
 
 @media screen and (max-width: 530px) {
-    body {
-        font-size: 0.8rem !important ;
-    }
-    img {
-        width: 150px !important;
-    }
+  body {
+    font-size: 0.8rem !important ;
+  }
+  img {
+    width: 150px !important;
+  }
 }
 
 .page-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .page-content button {
-    background-color: orange;
-    border: 1px solid black !important;
-    color: black;
+  background-color: orange;
+  border: 1px solid black !important;
+  color: black;
 }
 .text {
-    width: 100%;
-    background-color: orange;
-    color: black;
-    padding: 50px;
-    margin: 20px;
-    border-radius: 5px;
+  width: 100%;
+  background-color: orange;
+  color: black;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 5px;
 
-    text-align: center;
+  text-align: center;
 }
 .text img {
-    width: 250px;
-    margin: 30px 0 60px;
+  width: 250px;
+  margin: 30px 0 60px;
 }
-
 
 .code {
-    background-color: black;
-    color: white;
-    font-family: 'Nanum Gothic Coding', monospace;
-    padding: 20px 50px;
-    border-radius: 3px;
-    margin: 20px 100px 0;
+  background-color: black;
+  color: white;
+  font-family: "Nanum Gothic Coding", monospace;
+  padding: 20px 50px;
+  border-radius: 3px;
+  margin: 20px 100px 0;
 }
 .align-left {
-    text-align: left;
+  text-align: left;
 }

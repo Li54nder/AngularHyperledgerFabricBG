@@ -1,26 +1,27 @@
 ::ng-deep .mat-expansion-panel {
-    background-color: orange;
+  background-color: orange;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 ::ng-deep .mat-focused .mat-form-field-ripple {
-    background-color: black !important;
+  background-color: black !important;
 }
-::ng-deep .mat-focused mat-label, ::ng-deep mat-label {
-    color: black !important;
+::ng-deep .mat-focused mat-label,
+::ng-deep mat-label {
+  color: black !important;
 }
 ::ng-deep .cdk-text-field-autofilled {
-    background-color: orange !important;
+  background-color: orange !important;
 }
 
 .question {
-    text-align: left;
-    padding: 10px 20px 25px;
-    margin: 30px 0 20px;
-    border: 1px solid black;
-    border-radius: 3px;
+  text-align: left;
+  padding: 10px 20px 25px;
+  margin: 30px 0 20px;
+  border: 1px solid black;
+  border-radius: 3px;
 }
