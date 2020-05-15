@@ -19,6 +19,7 @@ export interface ResponseData {
 export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
+  private tokenExpirationAlert: any;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -101,12 +102,18 @@ export class AuthService {
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
     }
+    if (this.tokenExpirationAlert) {
+      clearTimeout(this.tokenExpirationAlert);
+    }
   }
 
   autoLogout(expirationDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, expirationDuration);
+    this.tokenExpirationAlert = setTimeout(() => {
+      alert("Your session expires in 5 seconds, you will be automatically logged out.")
+    }, expirationDuration - 5000)
   }
 
   private handleAuth(

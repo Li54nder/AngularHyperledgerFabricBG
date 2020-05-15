@@ -9,7 +9,7 @@
     <div *ngIf="isLoading">
       <app-loading-spinner></app-loading-spinner>
     </div>
-    <div *ngIf="error">
+    <div *ngIf="error && !isLoading">
       <mat-card>
         <mat-card-title>Error!</mat-card-title>
         <mat-card-content>{{ error }}</mat-card-content>
