@@ -25,3 +25,20 @@ form {
   border: 1px solid black;
   border-radius: 3px;
 }
+.question h3 {
+  display: flex;
+  justify-content: space-between;
+}
+.question .content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.question .content .vote {
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.question .content .vote mat-icon{
+  cursor: pointer;
+}

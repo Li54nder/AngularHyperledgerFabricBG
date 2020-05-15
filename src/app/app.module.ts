@@ -15,6 +15,8 @@ import { GuideComponent } from './pages/guide/guide.component';
 import { QNAComponent } from './pages/qna/qna.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AuthGuard } from './pages/auth/auth.guard';
+import { AuthInterceptorSrvice } from './pages/auth/auth-interceptor.service';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -24,8 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
-import { AuthInterceptorSrvice } from './pages/auth/auth-interceptor.service';
-import { AuthGuard } from './pages/auth/auth.guard';
+import { MatTooltipModule } from '@angular/material/tooltip'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -62,6 +63,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatExpansionModule,
     MatCardModule,
+    MatTooltipModule
   ],
   providers: [
     {

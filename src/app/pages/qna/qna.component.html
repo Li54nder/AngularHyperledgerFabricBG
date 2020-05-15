@@ -16,40 +16,67 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
 
-      <form action="" autocomplete="off">
+      <form
+        autocomplete="off"
+        #authForm="ngForm"
+        (ngSubmit)="onSubmitForm(authForm)"
+        *ngIf="!isLoading"
+      >
         <mat-form-field class="example-full-width">
           <mat-label>Subject:</mat-label>
-          <input matInput type="text" placeholder="Smart Contract" />
+          <input
+            matInput
+            type="text"
+            ngModel
+            placeholder="Smart Contract"
+            minlength="4"
+            name="subject"
+          />
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Question content:</mat-label>
           <textarea
             matInput
             rows="5"
+            minlength="10"
+            ngModel
             placeholder="I have heard that smart contracts can be written in two ways. What are those ways."
+            name="content"
           ></textarea>
         </mat-form-field>
         <br />
-        <button mat-raised-button>Ask</button>
+        <button mat-raised-button type="submit">Ask</button>
       </form>
     </mat-expansion-panel>
   </div>
 
   <div class="text">
-    <h1>Answared</h1>
-    ngFor...
+    <h1>Answered</h1>
+    <div *ngIf="!answeredQuestions">
+      <br />
+      <i><p>There is no answered questions...</p></i>
+    </div>
+    <div class="question" *ngFor="let question of answeredQuestions">
+      <h3>{{ question.question.subject }}</h3>
+      <p>Q: {{ question.question.content }}</p>
+      <p>A: {{ question.answer }}</p>
+    </div>
   </div>
 
   <div class="text">
-    <h1>Unanswared</h1>
+    <h1>Unanswered</h1>
     <div *ngIf="!questions">
       <br />
-      <i><p>There is no unanswared questions...</p></i>
+      <i><p>There is no unanswered questions...</p></i>
     </div>
-    <div *ngIf="isAuth">
-      <div class="question" *ngFor="let question of questions">
-        <h3>{{ question.subject }}</h3>
-        {{ question.content }}
+    <div class="question" *ngFor="let question of questions; let i = index">
+      <h3>{{ question.subject }} <small>Rate: {{question.rate}}</small></h3>
+      <div class="content">
+        <p>{{ question.content }}</p>
+        <div class="vote">
+          <mat-icon matTooltip="Upvote this question" (click)="upvote(i)">keyboard_arrow_up</mat-icon>
+          <mat-icon matTooltip="Downvote" (click)="downvote(i)">keyboard_arrow_down</mat-icon>
+        </div>
       </div>
     </div>
   </div>
