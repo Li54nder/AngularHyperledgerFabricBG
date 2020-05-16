@@ -26,14 +26,20 @@ export class QNAComponent implements OnInit, OnDestroy {
     };
   }[] = new Array();
   answeredQuestions: any[] = new Array();
+  rating: {sum: number, votes: number, users: {}};
+  private currUser: User;
 
   constructor(
     private dataStorage: DataStorageService,
     private authService: AuthService
   ) {
-    dataStorage.uQuestions.subscribe((data) => {
+    dataStorage.uQuestions.subscribe(data => {
       this.questions = data;
     });
+    // dataStorage.rating.pipe(take(1)).subscribe(data => {
+    //   this.rating = data;
+    //   // this.averageRating = data.average;
+    // })
   }
 
   ngOnInit(): void {
@@ -44,9 +50,16 @@ export class QNAComponent implements OnInit, OnDestroy {
     this.dataStorage.fetchAnsweredQuestions().subscribe((res) => {
       this.answeredQuestions = res;
     });
-
     this.userSubscription = this.authService.user.subscribe((user) => {
       this.isAuth = !!user;
+      this.currUser = user;
+    });
+    this.dataStorage.fetchRating().subscribe(res => {     
+      this.rating = res; 
+      if (res.users[this.currUser.email.replace('.', '-')]) {
+        let x: HTMLElement = document.querySelector('#star_'+res.users[this.currUser.email.replace('.', '-')]);
+        x.click();       
+      }
     });
   }
 
@@ -87,24 +100,21 @@ export class QNAComponent implements OnInit, OnDestroy {
       };
     }
 
-    // Bring up current user
-    let tmpUser: User;
-    this.authService.user.pipe(take(1)).subscribe((x) => {
-      tmpUser = x;
-    });
+    // // Bring up current user
+    // this.authService.user.pipe(take(1)).subscribe((x) => {
+    //   this.currUser = x;
+    // });
     // Check if you want to upvote or downvote
     if (up) {
       if (
         // If you already voted up then you want to remove your vote... Okay
         this.questions[i].voters.up &&
-        this.questions[i].voters.up.includes(tmpUser.email)
+        this.questions[i].voters.up.includes(this.currUser.email)
       ) {
         this.questions[i].rate--;
         this.questions[i].voters.up = this.questions[i].voters.up.filter(
           (x) => {
-            console.log(x);
-            console.log(tmpUser.email);
-            return x !== tmpUser.email;
+            return x !== this.currUser.email;
           }
         );
         this.sortQuestions();
@@ -115,14 +125,12 @@ export class QNAComponent implements OnInit, OnDestroy {
       if (
         // If you vote up, but you VOTED DOWN before then remove that 1 downvote
         this.questions[i].voters.down &&
-        this.questions[i].voters.down.includes(tmpUser.email)
+        this.questions[i].voters.down.includes(this.currUser.email)
       ) {
         this.questions[i].rate++;
         this.questions[i].voters.down = this.questions[i].voters.down.filter(
           (x) => {
-            console.log(x);
-            console.log(tmpUser.email);
-            return x !== tmpUser.email;
+            return x !== this.currUser.email;
           }
         );
       }
@@ -131,20 +139,18 @@ export class QNAComponent implements OnInit, OnDestroy {
       if (!this.questions[i].voters.up) {
         this.questions[i].voters.up = new Array();
       }
-      this.questions[i].voters.up.push(tmpUser.email);
+      this.questions[i].voters.up.push(this.currUser.email);
     } else {
       // You want to downvote
       if (
         // If you already voted down then you want to remove your vote... Okay
         this.questions[i].voters.down &&
-        this.questions[i].voters.down.includes(tmpUser.email)
+        this.questions[i].voters.down.includes(this.currUser.email)
       ) {
         this.questions[i].rate++;
         this.questions[i].voters.down = this.questions[i].voters.down.filter(
           (x) => {
-            console.log(x);
-            console.log(tmpUser.email);
-            return x !== tmpUser.email;
+            return x !== this.currUser.email;
           }
         );
         this.sortQuestions();
@@ -155,14 +161,12 @@ export class QNAComponent implements OnInit, OnDestroy {
       if (
         // If you vote down, but you VOTED UP before then remove that 1 upvote
         this.questions[i].voters.up &&
-        this.questions[i].voters.up.includes(tmpUser.email)
+        this.questions[i].voters.up.includes(this.currUser.email)
       ) {
         this.questions[i].rate--;
         this.questions[i].voters.up = this.questions[i].voters.up.filter(
           (x) => {
-            console.log(x);
-            console.log(tmpUser.email);
-            return x !== tmpUser.email;
+            return x !== this.currUser.email;
           }
         );
       }
@@ -171,7 +175,7 @@ export class QNAComponent implements OnInit, OnDestroy {
       if (!this.questions[i].voters.down) {
         this.questions[i].voters.down = new Array();
       }
-      this.questions[i].voters.down.push(tmpUser.email);
+      this.questions[i].voters.down.push(this.currUser.email);
     }
     // Save changes for two *Otherwise
     this.sortQuestions();
@@ -185,6 +189,19 @@ export class QNAComponent implements OnInit, OnDestroy {
   saveQuestions() {
     this.dataStorage.uQuestions.next(this.questions);
     this.dataStorage.saveQuestions();
+  }
+
+  onRating(i: number) {
+    let email = this.currUser.email;
+    email = email.replace('.', '-')
+    if(this.rating.users[email]) {
+      this.rating.sum -= this.rating.users[email]
+      this.rating.votes--;
+    }
+    this.rating.sum += i;
+    this.rating.votes++;
+    this.rating.users[email] = i;
+    this.dataStorage.saveRating(this.rating);
   }
 
   ngOnDestroy() {

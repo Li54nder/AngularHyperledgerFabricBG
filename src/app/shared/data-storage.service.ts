@@ -10,8 +10,17 @@ import { SelectMultipleControlValueAccessor } from '@angular/forms';
 export class DataStorageService {
   private ROOT_URL: string = 'https://test-38ac4.firebaseio.com';
   public uQuestions = new BehaviorSubject<any>(null);
+  // public rating = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient, private authService: AuthService) {}
+
+  fetchRating() {
+    return this.http.get<{sum: number, votes: number, users: {}}>(this.ROOT_URL + '/rating.json');
+  }
+  
+  saveRating(data: any) {
+    this.http.put(this.ROOT_URL + '/rating.json', data).subscribe();
+  }
 
   fetchQuestions() {
     this.http

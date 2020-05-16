@@ -2,17 +2,17 @@
   <div class="text">
     <h1>Questions & Answers</h1>
     <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-      quisquam corporis rerum nemo ea repellat harum debitis provident accusamus
-      tempora voluptates delectus officiis consectetur dolores expedita ipsam
-      omnis, aperiam quos!
+      Here, on this page, you can find answers to some questions. You can ask
+      your own question absolutely anonymously, but also read the current
+      unanswered questions, so you can upvote some of them to be brought to the
+      top of the list, because we will answer questions with more votes faster.
     </p>
   </div>
   <div class="text">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <strong>Ask some question</strong>
+          <strong>Ask your question</strong>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
@@ -51,10 +51,10 @@
   </div>
 
   <div class="text">
-    <h1>Answered</h1>
+    <h1>Answered questions</h1>
     <div *ngIf="!answeredQuestions">
       <br />
-      <i><p>There is no answered questions...</p></i>
+      <i><p>There is no answered questions yet...</p></i>
     </div>
     <div class="question" *ngFor="let question of answeredQuestions">
       <h3>{{ question.question.subject }}</h3>
@@ -64,25 +64,51 @@
   </div>
 
   <div class="text">
-    <h1>Unanswered</h1>
+    <h1>Unanswered questions</h1>
     <div *ngIf="!questions">
       <br />
-      <i><p>There is no unanswered questions...</p></i>
+      <i><p>There is no unanswered questions yet...</p></i>
     </div>
     <div class="question" *ngFor="let question of questions; let i = index">
-      <h3>{{ question.subject }} <small>Rate: {{question.rate}}</small></h3>
+      <h3>
+        {{ question.subject }} <small>Rate: {{ question.rate }}</small>
+      </h3>
       <div class="content">
         <p>{{ question.content }}</p>
         <div class="vote">
-          <mat-icon matTooltip="Upvote this question" (click)="upvote(i)">keyboard_arrow_up</mat-icon>
-          <mat-icon matTooltip="Downvote" (click)="downvote(i)">keyboard_arrow_down</mat-icon>
+          <mat-icon matTooltip="Upvote this question" (click)="upvote(i)"
+            >keyboard_arrow_up</mat-icon
+          >
+          <mat-icon matTooltip="Downvote" (click)="downvote(i)"
+            >keyboard_arrow_down</mat-icon
+          >
         </div>
       </div>
     </div>
   </div>
 
   <div class="text">
-    <p>Rate our work, initiative and effort</p>
-    rating stars
+    <h3>Rate our work, initiative and effort...</h3>
+    <div>
+      <!-- RATE -->
+      <section id="rate" class="rating">
+        <!-- FIFTH STAR -->
+        <input type="radio" id="star_5" name="rate" value="5" (click)="onRating(5)" />
+        <label for="star_5" title="Five">&#9733;</label>
+        <!-- FOURTH STAR -->
+        <input type="radio" id="star_4" name="rate" value="4" (click)="onRating(4)" />
+        <label for="star_4" title="Four">&#9733;</label>
+        <!-- THIRD STAR -->
+        <input type="radio" id="star_3" name="rate" value="3" (click)="onRating(3)" />
+        <label for="star_3" title="Three">&#9733;</label>
+        <!-- SECOND STAR -->
+        <input type="radio" id="star_2" name="rate" value="2" (click)="onRating(2)" />
+        <label for="star_2" title="Two">&#9733;</label>
+        <!-- FIRST STAR -->
+        <input type="radio" id="star_1" name="rate" value="1" (click)="onRating(1)" />
+        <label for="star_1" title="One">&#9733;</label>
+      </section>
+    </div>
+    <p>Current average rate: {{(rating)? (rating.sum/rating.votes | number:'1.1-1') : '...'}}</p>
   </div>
 </div>
