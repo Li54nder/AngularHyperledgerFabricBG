@@ -61,7 +61,7 @@ export class QNAComponent implements OnInit, OnDestroy {
     this.questions.push({
       subject: subject,
       content: content,
-      rate: 1,
+      rate: 0,
       timestamp: new Date().getTime(),
       voters: { up: new Array(), down: new Array() },
     });
@@ -72,48 +72,119 @@ export class QNAComponent implements OnInit, OnDestroy {
   }
 
   upvote(i: number) {
-    // this.vote(this.questions[i].timestamp, true);
     this.vote(i, true);
   }
+
   downvote(i: number) {
     this.vote(i, false);
   }
+
   vote(i: number, up: boolean) {
+    if(!this.questions[i].voters) {
+      this.questions[i].voters = {
+        up: new Array(),
+        down: new Array()
+      };
+    }
+
+    // Bring up current user
     let tmpUser: User;
     this.authService.user.pipe(take(1)).subscribe((x) => {
       tmpUser = x;
     });
-    console.log(this.questions[i]);
+    // Check if you want to upvote or downvote
     if (up) {
-      if (this.questions[i].voters.up.includes(tmpUser.email)) {
-        console.log('Vec glasao UP');
+      if (
+        // If you already voted up then you want to remove your vote... Okay
+        this.questions[i].voters.up &&
+        this.questions[i].voters.up.includes(tmpUser.email)
+      ) {
+        this.questions[i].rate--;
+        this.questions[i].voters.up = this.questions[i].voters.up.filter(
+          (x) => {
+            console.log(x);
+            console.log(tmpUser.email);
+            return x !== tmpUser.email;
+          }
+        );
+        this.sortQuestions();
+        this.saveQuestions();
         return;
       }
+      // Otherwise
+      if (
+        // If you vote up, but you VOTED DOWN before then remove that 1 downvote
+        this.questions[i].voters.down &&
+        this.questions[i].voters.down.includes(tmpUser.email)
+      ) {
+        this.questions[i].rate++;
+        this.questions[i].voters.down = this.questions[i].voters.down.filter(
+          (x) => {
+            console.log(x);
+            console.log(tmpUser.email);
+            return x !== tmpUser.email;
+          }
+        );
+      }
+      // Now include your upvote
       this.questions[i].rate++;
+      if (!this.questions[i].voters.up) {
+        this.questions[i].voters.up = new Array();
+      }
       this.questions[i].voters.up.push(tmpUser.email);
-      this.questions[i].voters.down = this.questions[i].voters.down.filter(
-        (x) => {
-          x !== tmpUser.email;
-        }
-      );
     } else {
-      if (this.questions[i].voters.down.includes(tmpUser.email)) {
-        console.log('Vec glasao DOWN');
+      // You want to downvote
+      if (
+        // If you already voted down then you want to remove your vote... Okay
+        this.questions[i].voters.down &&
+        this.questions[i].voters.down.includes(tmpUser.email)
+      ) {
+        this.questions[i].rate++;
+        this.questions[i].voters.down = this.questions[i].voters.down.filter(
+          (x) => {
+            console.log(x);
+            console.log(tmpUser.email);
+            return x !== tmpUser.email;
+          }
+        );
+        this.sortQuestions();
+        this.saveQuestions();
         return;
       }
+      // Otherwise
+      if (
+        // If you vote down, but you VOTED UP before then remove that 1 upvote
+        this.questions[i].voters.up &&
+        this.questions[i].voters.up.includes(tmpUser.email)
+      ) {
+        this.questions[i].rate--;
+        this.questions[i].voters.up = this.questions[i].voters.up.filter(
+          (x) => {
+            console.log(x);
+            console.log(tmpUser.email);
+            return x !== tmpUser.email;
+          }
+        );
+      }
+      // Now include your upvote
       this.questions[i].rate--;
+      if (!this.questions[i].voters.down) {
+        this.questions[i].voters.down = new Array();
+      }
       this.questions[i].voters.down.push(tmpUser.email);
-      this.questions[i].voters.up = this.questions[i].voters.up.filter((x) => {
-        x !== tmpUser.email;
-      });
     }
+    // Save changes for two *Otherwise
     this.sortQuestions();
-    this.dataStorage.saveQuestions();
-    // this.dataStorage.saveVote(timestamp, up);
+    this.saveQuestions();
   }
 
   sortQuestions() {
     this.questions.sort((a, b) => (a.rate > b.rate ? -1 : 1));
+  }
+
+  saveQuestions() {
+    this.dataStorage.uQuestions.next(this.questions);
+    this.dataStorage.saveQuestions();
   }
 
   ngOnDestroy() {
