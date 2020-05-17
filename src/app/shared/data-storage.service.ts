@@ -22,6 +22,10 @@ export class DataStorageService {
     this.http.put(this.ROOT_URL + '/rating.json', data).subscribe();
   }
 
+  fetchGlossary() {
+    return this.http.get<{therm: string, definition: string}[]>(this.ROOT_URL + '/glossary.json');
+  }
+
   fetchQuestions() {
     this.http
       .get(this.ROOT_URL + '/questions.json')

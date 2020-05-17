@@ -57,7 +57,7 @@
   </div>
   <div class="text">
     <p>Then, we strongly recommend that you read our glossary!</p>
-    <button mat-raised-button>Go To Glossary</button>
+    <button mat-raised-button (click)="goToGlossary()">Go To Glossary</button>
   </div>
   <div class="text">
     <p>
@@ -74,7 +74,10 @@
       Also we have this photo that might help you understand the architecture
       itself.
     </p>
-    <button mat-raised-button>Show photo</button>
+    <mat-card>
+      <img src="assets/img/Architecture.png" alt="" mat-card-image>
+    </mat-card>
+    <!-- <button mat-raised-button>Show photo</button> -->
   </div>
   <div class="text">
     <p>

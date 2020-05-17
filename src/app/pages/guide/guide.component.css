@@ -48,3 +48,19 @@
 ::ng-deep .mat-simple-snackbar-action {
   color: black !important;
 }
+
+mat-card {
+  display: inline-block;
+  margin: 25px 0 50px;
+  padding: 0;
+  width: 70%;
+}
+mat-card img {
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  mat-card {
+    width: 100%;
+  }
+}

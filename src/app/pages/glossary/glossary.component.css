@@ -1,0 +1,19 @@
+#search mat-form-field {
+  width: 100%;
+}
+
+::ng-deep .mat-focused .mat-form-field-ripple {
+  background-color: black !important;
+}
+::ng-deep .mat-focused mat-label,
+::ng-deep mat-label {
+  color: black !important;
+}
+::ng-deep .cdk-text-field-autofilled {
+  background-color: orange !important;
+}
+
+.item {
+  text-align: left;
+  border-bottom: 1px solid black;
+}
