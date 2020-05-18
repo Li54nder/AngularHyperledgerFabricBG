@@ -23,6 +23,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.authService.logout();
   }
 
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();
   }

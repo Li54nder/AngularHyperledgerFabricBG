@@ -2,8 +2,8 @@
   <div class="text">
     <h1>Glossary</h1>
     <p>
-      Here where you can find some important therms you must know before
-      starting your Hyperledger Fabric journay.
+      Here where you can find some important terms you must know before starting
+      your Hyperledger Fabric journey.
     </p>
   </div>
 
@@ -11,11 +11,14 @@
     <form id="search" autocomplete="off">
       <mat-form-field>
         <mat-label>Search our dictionary</mat-label>
-        <input type="text" matInput [(ngModel)]="query" name="query">
+        <input type="text" matInput [(ngModel)]="query" name="query" />
       </mat-form-field>
     </form>
-    <br><br>
-    <div class="item" *ngFor="let item of glossary | search:'therm, definition': query">
+    <br /><br />
+    <div
+      class="item"
+      *ngFor="let item of glossary | search: 'therm, definition':query"
+    >
       <h3>{{ item.therm }}</h3>
       <p>{{ item.definition }}</p>
     </div>

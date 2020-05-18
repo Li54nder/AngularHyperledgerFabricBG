@@ -1,15 +1,30 @@
 <nav id="navbar">
-  <button mat-button routerLink="/">
-    Hyperledger Fabric Beginners Guide
+  <button mat-button routerLink="/" (click)="scrollToTop()">
+    Hyperledger Fabric Beginner's Guide
   </button>
   <div id="nav">
-    <button mat-button routerLink="/byfn" routerLinkActive="active">
+    <button
+      mat-button
+      routerLink="/byfn"
+      routerLinkActive="active"
+      (click)="scrollToTop()"
+    >
       BYFN
     </button>
-    <button mat-button routerLink="/guide" routerLinkActive="active">
+    <button
+      mat-button
+      routerLink="/guide"
+      routerLinkActive="active"
+      (click)="scrollToTop()"
+    >
       Guide
     </button>
-    <button mat-button routerLink="/q-and-a" routerLinkActive="active">
+    <button
+      mat-button
+      routerLink="/q-and-a"
+      routerLinkActive="active"
+      (click)="scrollToTop()"
+    >
       Q&A
     </button>
     <button mat-button *ngIf="isAuth" (click)="onLogout()">Logout</button>

@@ -13,5 +13,11 @@ export class HomeComponent implements OnInit {
 
   goToGlossary() {
     this.router.navigate(['/glossary']);
+    window.scrollTo(0, 0);
+  }
+  
+  navigateToGuide() {
+    this.router.navigate(['/guide']);
+    window.scrollTo(0, 0);
   }
 }

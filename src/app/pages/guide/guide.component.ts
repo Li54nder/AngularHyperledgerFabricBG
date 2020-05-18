@@ -18,5 +18,6 @@ export class GuideComponent implements OnInit {
 
   goToGlossary() {
     this.router.navigate(['/glossary']);
+    window.scrollTo(0, 0);
   }
 }

@@ -15,7 +15,9 @@ export class BYFNComponent implements OnInit {
   openSnackBar(message, action) {
     this.snackBar.open(message, action, { duration: 4000 });
   }
+  
   navigateToGuide() {
     this.router.navigate(['/guide']);
+    window.scrollTo(0, 0);
   }
 }
